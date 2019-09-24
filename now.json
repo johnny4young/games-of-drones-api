@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "name": "infoclient-1-api-now",
+    "builds": [
+      {
+        "src": "dist/main.js",
+        "use": "@now/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "dist/main.js"
+      }
+    ]
+  }
