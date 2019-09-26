@@ -4,13 +4,29 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-Live Demo [Link](https://games-of-drones-api-now.johnny4young.now.sh/)
+This proyect was created using Nest, Docker, Sequelize, TypeScript, Jest and Postgres as Database.
+
+
+
+Live API Demo [Link](https://games-of-drones-api-now.johnny4young.now.sh/)
+Swagger Docs [Link](https://games-of-drones-api-now.johnny4young.now.sh/docs)
 
 ## Installation
 
 ```bash
 $ npm install
+
 ```
+
+aditionally you can deployment this API to NOW Platform
+
+```deploy NOW
+$ npm install -g now
+$ now login
+$ npm run build
+$ now
+```
+
 ## Prerequisites
 
 - Node.js
@@ -21,8 +37,17 @@ $ npm install
 ## Running the app
 
 ```bash
+
+# create a .env file for configuring variables, see .evn.example 
+
 # development
 $ npm run start
+
+# run docker container Postgres
+$ npm run db:start
+
+# run migrations/seeder, do it only once and after to run 'npm run start'!
+$ npm run db:seed
 
 # watch mode
 $ npm run start:dev
@@ -46,14 +71,7 @@ $ npm run test:cov
 
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+You could support this development doing a positive feedback in your company :).
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-  Nest is [MIT licensed](LICENSE).
+Nest is [MIT licensed](LICENSE).

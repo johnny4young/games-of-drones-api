@@ -1,9 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Player } from './entity/player.entity';
+import { Move } from './entity/move.entity';
 
 require('dotenv').config();
-
-console.log(process.env.SSL)
 
 export const databaseProvider = [
     {
@@ -22,7 +21,7 @@ export const databaseProvider = [
               ssl : Boolean(process.env.SSL)
             }
           });
-          sequelize.addModels([Player]);
+          sequelize.addModels([Player, Move]);
           await sequelize.sync();
           return sequelize;
         },
