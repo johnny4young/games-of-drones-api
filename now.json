@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "infoclient-1-api-now",
+    "name": "games-of-drones-api-now",
     "builds": [
       {
         "src": "dist/main.js",

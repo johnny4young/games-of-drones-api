@@ -1,6 +1,7 @@
 # compiled output
 /dist
 /node_modules
+/games_of_drones_volume
 
 # Logs
 logs

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  game_of_drones_db:
+    image: postgres:11.5
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: developer
+      POSTGRES_USER: postgres
+    volumes:
+      - ./games_of_drones_volume:/var/lib/postgresql/data
