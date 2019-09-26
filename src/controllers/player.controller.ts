@@ -5,17 +5,15 @@ import { PlayerService } from '../services/player.service';
 import { PlayersDto } from '../commons/dto/players.dto';
 import { ValidationPipe } from '../commons/utils/validation.pipe';
 
-
 @Controller('players')
 export class PlayerController {
 
-    constructor(private readonly playerService: PlayerService ){}
+    constructor(private readonly playerService: PlayerService ) {}
 
     @Get()
-    findAll(@Query() queries): Promise<PlayersDto> {        
+    findAll(@Query() queries): Promise<PlayersDto> {
         return this.playerService.findAll(queries.limit, queries.offset);
     }
-
 
     @Put()
     @UsePipes(new ValidationPipe())

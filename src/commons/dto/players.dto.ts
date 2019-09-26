@@ -1,6 +1,6 @@
-import { Player } from "../database/entity/player.entity";
+import { Player } from '../database/entity/player.entity';
 import { IsInt, IsArray, ValidateNested, IsPositive } from 'class-validator';
-import { Type } from "class-transformer";
+import { Type } from 'class-transformer';
 
 export class PlayersDto {
     @IsArray()
@@ -15,5 +15,5 @@ export class PlayersDto {
     limit: number;
     @IsInt()
     @IsPositive()
-    offset: number
+    offset: number;
 }

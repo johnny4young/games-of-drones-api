@@ -17,13 +17,13 @@ export const databaseProvider = [
             username: process.env.USERNAME || 'postgres',
             password: process.env.PASSWORD,
             database: process.env.DATABASE,
-            dialectOptions:{
-              ssl : Boolean(process.env.SSL)
-            }
+            dialectOptions: {
+              ssl : Boolean(process.env.SSL),
+            },
           });
           sequelize.addModels([Player, Move]);
           await sequelize.sync();
           return sequelize;
         },
       },
-]
+];

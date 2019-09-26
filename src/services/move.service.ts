@@ -1,6 +1,6 @@
-import { Injectable, Inject } from '@nestjs/common'
-import { Move } from '../commons/database/entity/move.entity'
-import { MoveDto } from 'src/commons/dto/move.dto'
+import { Injectable, Inject } from '@nestjs/common';
+import { Move } from '../commons/database/entity/move.entity';
+import { MoveDto } from 'src/commons/dto/move.dto';
 
 @Injectable()
 export class MoveService {
@@ -8,19 +8,19 @@ export class MoveService {
 
 	async findAll(): Promise<Move[]> {
 		return await this.MOVE_REPOSITORY.findAll<Move>({
-			attributes: [ 'id', 'name', 'size' ]
-		})
+			attributes: [ 'id', 'name', 'size' ],
+		});
 	}
 
 	async update(movesDto: MoveDto[]): Promise<Move[]> {
-		let promiseList = []
+		const promiseList = [];
 		movesDto.forEach((moveDto) => {
-			promiseList.push(this.MOVE_REPOSITORY.update({ name: moveDto.name }, { where: { size: moveDto.size } }))
-		})
+			promiseList.push(this.MOVE_REPOSITORY.update({ name: moveDto.name }, { where: { size: moveDto.size } }));
+		});
 
-		await Promise.all(promiseList)
+		await Promise.all(promiseList);
 		return await this.MOVE_REPOSITORY.findAll<Move>({
-			attributes: [ 'id', 'name', 'size' ]
-		})
+			attributes: [ 'id', 'name', 'size' ],
+		});
 	}
 }

@@ -8,13 +8,12 @@ import { MovesDto } from 'src/commons/dto/moves.dto';
 @Controller('moves')
 export class MoveController {
 
-    constructor(private readonly moveService: MoveService ){}
+    constructor(private readonly moveService: MoveService ) {}
 
     @Get()
     findAll(): Promise<Move[]> {
         return this.moveService.findAll();
     }
-
 
     @Put()
     @UsePipes(new ValidationPipe())

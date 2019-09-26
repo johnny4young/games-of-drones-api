@@ -2,7 +2,6 @@ import { Table, Column, Model, DataType, CreatedAt, UpdatedAt, ForeignKey, Belon
 
 @Table
 export class Player extends Model<Player> {
-  
 
   @Column(DataType.STRING)
   name: string;
