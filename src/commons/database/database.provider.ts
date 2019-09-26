@@ -12,6 +12,7 @@ export const databaseProvider = [
           const sequelize = new Sequelize({
             dialect: 'postgres',
             protocol: 'postgres',
+            dialectModule: require('pg'),
             host: process.env.HOST,
             port: +process.env.PORT,
             username: process.env.USERNAME || 'postgres',

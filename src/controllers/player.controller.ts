@@ -1,8 +1,8 @@
 import { Controller, Get, Put, Body, Param } from '@nestjs/common';
-import { Player } from 'src/commons/database/entity/player.entity';
-import { PlayerDto } from 'src/commons/dto/player.dto';
-import { PlayerService } from 'src/services/player.service';
-import { PlayersDto } from 'src/commons/dto/players.dto';
+import { Player } from '../commons/database/entity/player.entity';
+import { PlayerDto } from '../commons/dto/player.dto';
+import { PlayerService } from '../services/player.service';
+import { PlayersDto } from '../commons/dto/players.dto';
 
 
 @Controller('players')

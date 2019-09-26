@@ -12,5 +12,13 @@
         "src": "/(.*)",
         "dest": "dist/main.js"
       }
-    ]
+    ],
+    "env": {
+      "HOST": "@host",
+      "DATABASE": "@database",
+      "USERNAME": "@username",
+      "PASSWORD": "@password",
+      "PORT": "@port",
+      "SSL":"@ssl"
+    }
   }

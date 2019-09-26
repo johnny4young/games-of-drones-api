@@ -9,4 +9,4 @@ services:
       POSTGRES_PASSWORD: developer
       POSTGRES_USER: postgres
     volumes:
-      - ./games_of_drones_volume:/var/lib/postgresql/data
+      - ../games_of_drones_volume:/var/lib/postgresql/data
