@@ -1,7 +1,9 @@
-import { Controller, Get, Put, Param, Body } from '@nestjs/common';
+import { Controller, Get, Put, Param, Body, UsePipes } from '@nestjs/common';
 import { MoveService } from '../services/move.service';
 import { Move } from '../commons/database/entity/move.entity';
-import { MoveDto } from '../commons/dto/move.dto';
+import { ValidationPipe } from '../commons/utils/validation.pipe';
+import { MoveDto } from 'src/commons/dto/move.dto';
+import { MovesDto } from 'src/commons/dto/moves.dto';
 
 @Controller('moves')
 export class MoveController {
@@ -15,7 +17,8 @@ export class MoveController {
 
 
     @Put()
-    addGame(@Body() moves: MoveDto[]): Promise<Move[]> {
-        return this.moveService.update(moves);
+    @UsePipes(new ValidationPipe())
+    addGame(@Body() moves: MovesDto): Promise<Move[]> {
+        return this.moveService.update(moves.rows);
     }
 }
