@@ -16,8 +16,8 @@ export class PlayerService {
             order: [
                 ['victory', 'DESC']
             ],
-            limit: 10,
-            offset: 0
+            limit: limit,
+            offset: offset
         });
 
         return {
