@@ -1,18 +1,41 @@
-import { Injectable } from '@nestjs/common';
-import { Player } from 'src/commons/database/entity/player.entity';
-import { PlayerDto } from 'src/commons/dto/player.dto';
+import { Injectable, Inject } from '@nestjs/common';
+import { Player } from '../commons/database/entity/player.entity';
+import { PlayerDto } from '../commons/dto/player.dto';
+import { PlayersDto } from '../commons/dto/players.dto';
 
 @Injectable()
 export class PlayerService {
 
-    constructor(private readonly PLAYER_REPOSITORY: typeof Player){}
+    constructor(
+        @Inject('PLAYER_REPOSITORY') private readonly PLAYER_REPOSITORY: typeof Player){}
 
-    async findAll(): Promise<Player[]> {
-        return await this.PLAYER_REPOSITORY.findAll<Player>();
+    async findAll(limit: number = 10, offset: number = 0): Promise<PlayersDto> {
+        const foundAllPlayers = await this.PLAYER_REPOSITORY.findAndCountAll<Player>(
+        {
+            attributes: ['id', 'name', 'victory'],
+            order: [
+                ['victory', 'DESC']
+            ],
+            limit: 10,
+            offset: 0
+        });
+
+        return {
+            ...foundAllPlayers,
+            limit,
+            offset
+        }
     }
 
-    async addGame(userDto: PlayerDto): Promise<Player>{        
-        return await this.PLAYER_REPOSITORY.create({...userDto});
+    async addGame(playerDto: PlayerDto): Promise<Player>{ 
+        //check player or create if doesn't exits       
+        const [player, created] = await this.PLAYER_REPOSITORY.findOrCreate({ where : { name : playerDto.name}, defaults:  { victory: 1}});
+        
+        if( created ) return player;
+
+        player.victory = player.victory + 1;
+
+        return await player.save()
     }
     
 }

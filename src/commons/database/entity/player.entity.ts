@@ -7,8 +7,8 @@ export class Player extends Model<Player> {
   @Column(DataType.STRING)
   name: string;
 
-  @Column(DataType.NUMBER)
-  victory: number;
+  @Column(DataType.INTEGER)
+  victory: number ;
 
   @Default(() => new Date())
   @CreatedAt

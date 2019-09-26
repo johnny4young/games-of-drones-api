@@ -1,17 +1,18 @@
-import { Controller, Get, Put, Body } from '@nestjs/common';
+import { Controller, Get, Put, Body, Param } from '@nestjs/common';
 import { Player } from 'src/commons/database/entity/player.entity';
 import { PlayerDto } from 'src/commons/dto/player.dto';
 import { PlayerService } from 'src/services/player.service';
+import { PlayersDto } from 'src/commons/dto/players.dto';
 
 
-@Controller('player')
+@Controller('players')
 export class PlayerController {
 
     constructor(private readonly playerService: PlayerService ){}
 
     @Get()
-    findAll(): Promise<Player[]> {
-        return this.playerService.findAll()
+    findAll(@Param() params): Promise<PlayersDto> {
+        return this.playerService.findAll(params.limit, params.offset);
     }
 
 

@@ -9,6 +9,6 @@ import { listProviders } from './commons/database/list.provider';
 @Module({
   imports: [DatabaseModule],
   controllers: [AppController, PlayerController],
-  providers: [AppService, PlayerService, ...listProviders],
+  providers: [PlayerService, AppService, ...listProviders],
 })
 export class AppModule {}
