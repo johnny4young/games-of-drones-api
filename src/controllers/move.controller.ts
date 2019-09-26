@@ -2,8 +2,7 @@ import { Controller, Get, Put, Param, Body, UsePipes } from '@nestjs/common';
 import { MoveService } from '../services/move.service';
 import { Move } from '../commons/database/entity/move.entity';
 import { ValidationPipe } from '../commons/utils/validation.pipe';
-import { MoveDto } from 'src/commons/dto/move.dto';
-import { MovesDto } from 'src/commons/dto/moves.dto';
+import { MovesDto } from '../commons/dto/moves.dto';
 
 @Controller('moves')
 export class MoveController {

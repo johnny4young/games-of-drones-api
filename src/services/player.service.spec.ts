@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PlayerService } from './player.service';
 import { PlayerDto } from '../commons/dto/player.dto';
+import { listProviders } from '../commons/database/list.provider';
 
 describe('PlayerService', () => {
 	let service: PlayerService;
@@ -33,7 +34,7 @@ describe('PlayerService', () => {
 
 	beforeEach(async () => {
 		const module: TestingModule = await Test.createTestingModule({
-			providers: [ PlayerService ],
+			providers: [ PlayerService, ...listProviders ],
 		}).compile();
 
 		service = module.get<PlayerService>(PlayerService);
