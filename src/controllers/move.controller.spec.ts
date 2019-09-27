@@ -9,7 +9,7 @@ describe('Move Controller', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [MoveController],
-      providers: [MoveService, ...listProviders]
+      providers: [MoveService, ...listProviders],
     }).compile();
 
     controller = module.get<MoveController>(MoveController);
