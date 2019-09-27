@@ -9,7 +9,6 @@ This proyect was created using Nest, Docker, Sequelize, TypeScript, Jest and Pos
 
 
 Live API Demo [Link](https://games-of-drones-api-now.johnny4young.now.sh/)
-Swagger Docs [Link](https://games-of-drones-api-now.johnny4young.now.sh/docs)
 
 ## Installation
 
